@@ -435,6 +435,9 @@ class FFmpegInfosParser:
                 stream_number = int(stream_number)
                 stream_type_lower = stream_type.lower()
 
+                if stream_type_lower in ('subtitle', 'attachment'):
+                    continue
+
                 if language == "und":
                     language = None
 
