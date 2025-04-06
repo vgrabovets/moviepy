@@ -163,7 +163,7 @@ class VideoClip(Clip):
 
     @convert_parameter_to_seconds(["t"])
     @convert_masks_to_RGB
-    def save_frame(self, filename, t=0, with_mask=True):
+    def save_frame(self, filename, t=0, with_mask=True, **kwargs):
         """Save a clip's frame to an image file.
 
         Saves the frame of clip corresponding to time ``t`` in ``filename``.
@@ -191,7 +191,7 @@ class VideoClip(Clip):
         else:
             im = im.astype("uint8")
 
-        imsave(filename, im)
+        imsave(filename, im, **kwargs)
 
     @requires_duration
     @use_clip_fps_by_default
